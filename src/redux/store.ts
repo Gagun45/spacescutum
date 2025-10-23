@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import todosReducer from "../redux/slices/todosSlice";
+import uiReducer from "../redux/slices/uiSlice";
 import { saveTodosToStorage } from "./utils/localStorage";
 import type { Todo } from "@/lib/types";
 
-export const store = configureStore({ reducer: { todos: todosReducer } });
+export const store = configureStore({
+  reducer: { todos: todosReducer, ui: uiReducer },
+});
 
 let prevTodos: Todo[] = [];
 

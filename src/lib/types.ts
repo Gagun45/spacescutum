@@ -12,8 +12,17 @@ export type Todo = {
   createdAt: string;
 };
 
-export type TodosState = {
-  todos: Todo[];
-  loading: boolean;
-  error?: string | null;
+export type SortField = "createdAt" | "title";
+export type SortOrder = "asc" | "desc";
+export type FilterCompleted = "completed" | "incompleted";
+
+export type SortBy = {
+  field: SortField;
+  order: SortOrder;
+};
+
+export type UIState = {
+  searchQuery: string;
+  sortBy: SortBy;
+  filterCompleted?: FilterCompleted;
 };

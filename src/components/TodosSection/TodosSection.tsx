@@ -1,10 +1,13 @@
-import AddTodoForm from "./TodosList/AddTodoForm/AddTodoForm";
+import AddTodoForm from "./AddTodoForm/AddTodoForm";
+import SearchBar from "./SearchBar/SearchBar";
 import TodosList from "./TodosList/TodosList";
 
 const TodosSection = () => {
   return (
     <section className="space-y-4">
-      <span>Todos bar</span>
+      <div>
+        <SearchBar />
+      </div>
       <AddTodoForm />
       <TodosList />
     </section>

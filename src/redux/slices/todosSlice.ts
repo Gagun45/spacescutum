@@ -1,8 +1,14 @@
-import type { ExternalTodo, Todo, TodosState } from "@/lib/types";
+import type { ExternalTodo, Todo } from "@/lib/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit/react";
 import { createAsyncThunk } from "@reduxjs/toolkit/react";
 import { v4 as uuid } from "uuid";
 import { loadTodosFromStorage } from "../utils/localStorage";
+
+type TodosState = {
+  todos: Todo[];
+  loading: boolean;
+  error?: string | null;
+};
 
 const initialState: TodosState = {
   todos: loadTodosFromStorage(),
