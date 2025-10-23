@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# TODO App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive TODO application built with **React**, **Redux Toolkit**, **TypeScript**, and **Tailwind CSS (shadcn UI)**.  
+Supports localStorage persistence, API fetching, filtering, sorting, pagination, and light/dark/system themes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Add, edit, and delete tasks
+- Mark tasks as completed / uncompleted
+- Persist todos in **localStorage**
+- Fetch sample todos from `jsonplaceholder.typicode.com`
+- Filter todos by:
+  - Search query
+  - Completed / uncompleted status
+- Sort todos by:
+  - Title
+  - Creation date
+  - Ascending / descending order
+- Pagination support (`showOnPage`, `currentPage`)
+- Editable task titles with inline edit mode
+- Responsive design with **light, dark, and system theme modes**
+- Shadcn UI components for consistent styling
+- Fully typed with **TypeScript**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** — frontend library
+- **Redux Toolkit** — state management
+- **TypeScript** — static typing
+- **Tailwind CSS + shadcn UI** — design system
+- **Vite** — development and build tool
+- **jsonplaceholder API** — sample todos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone the repo
+git clone https://github.com/Gagun45/spacescutum.git
+cd spacescutum
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Run development server
+npm run dev
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open http://localhost:5173 in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Folder Structure
+      src/
+        ├─ components/        # Reusable UI components
+        ├─ hooks/             # React hooks used across the app
+        ├─ redux/             # Redux slices and store setup
+        ├─ lib/               # Helper functions, types
+        ├─ App.tsx            # Root app component
+        ├─ index.css          # Global styles
+        └─ main.tsx           # Entry point
