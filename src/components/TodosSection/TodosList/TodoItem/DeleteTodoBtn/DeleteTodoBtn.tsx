@@ -13,7 +13,7 @@ const DeleteTodoBtn = ({ todoId }: Props) => {
     dispatch(deleteTodo({ todoId }));
   };
   return (
-    <Button variant={"destructive"} onClick={handleDeleteTodo}>
+    <Button variant={"destructive"} className="size-7" onClick={handleDeleteTodo}>
       <TrashIcon />
     </Button>
   );

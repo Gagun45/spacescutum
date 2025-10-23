@@ -53,6 +53,15 @@ const todosSlice = createSlice({
         t.id === todoId ? { ...t, completed: !t.completed } : t
       );
     },
+    editTodoTitle(
+      state,
+      action: PayloadAction<{ todoId: string; newTitle: string }>
+    ) {
+      const { newTitle, todoId } = action.payload;
+      state.todos = state.todos.map((t) =>
+        t.id === todoId ? { ...t, title: newTitle } : t
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -75,6 +84,11 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo, clearTodos, toggleTodoCompleted } =
-  todosSlice.actions;
+export const {
+  addTodo,
+  deleteTodo,
+  clearTodos,
+  toggleTodoCompleted,
+  editTodoTitle,
+} = todosSlice.actions;
 export default todosSlice.reducer;
