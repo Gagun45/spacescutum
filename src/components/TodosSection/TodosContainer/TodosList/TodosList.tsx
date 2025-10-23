@@ -11,6 +11,7 @@ interface Props {
 const TodosList = ({ todos, totalTodos }: Props) => {
   return (
     <div className="flex flex-col gap-4">
+      <span className="italic">Found todos: {totalTodos} </span>
       <AnimatePresence>
         {todos.map((todo) => (
           <motion.div
