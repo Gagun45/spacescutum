@@ -6,7 +6,7 @@ interface Props {
 }
 
 const getFilteredTodos = ({ todos, ui }: Props) => {
-  const { searchQuery, filterCompleted } = ui;
+  const { searchQuery, filterCompleted, sortBy } = ui;
 
   let filtered = [...todos];
 
@@ -23,6 +23,27 @@ const getFilteredTodos = ({ todos, ui }: Props) => {
     filtered = filtered.filter((t) => !t.completed);
 
   //sort by
+
+  switch (sortBy) {
+    case "createdAtAsc":
+      filtered.sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
+      break;
+    case "createdAtDesc":
+      filtered.sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+      break;
+    case "titleAsc":
+      filtered.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    case "titleDesc":
+      filtered.sort((a, b) => b.title.localeCompare(a.title));
+      break;
+  }
   //show on page
 
   return filtered;

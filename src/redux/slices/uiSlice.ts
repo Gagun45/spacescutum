@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit/react";
 
 const initialState: UIState = {
   searchQuery: "",
-  sortBy: { field: "createdAt", order: "asc" },
+  sortBy: "createdAtAsc",
   filterCompleted: "all",
 };
 
@@ -26,9 +26,9 @@ const UISlice = createSlice({
       state.sortBy = sortBy;
     },
     resetUI(state) {
-      state.searchQuery = "";
-      state.sortBy = { field: "createdAt", order: "asc" };
-      state.filterCompleted = "all";
+      state.filterCompleted = initialState.filterCompleted;
+      state.searchQuery = initialState.searchQuery;
+      state.sortBy = initialState.sortBy;
     },
   },
 });

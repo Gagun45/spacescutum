@@ -12,14 +12,12 @@ export type Todo = {
   createdAt: string;
 };
 
-export type SortField = "createdAt" | "title";
-export type SortOrder = "asc" | "desc";
+export type SortBy =
+  | "titleAsc"
+  | "titleDesc"
+  | "createdAtAsc"
+  | "createdAtDesc";
 export type FilterCompleted = "completed" | "incompleted" | "all";
-
-export type SortBy = {
-  field: SortField;
-  order: SortOrder;
-};
 
 export type UIState = {
   searchQuery: string;
@@ -29,5 +27,10 @@ export type UIState = {
 
 export type FilterCompletedOption = {
   value: FilterCompleted;
+  label: string;
+};
+
+export type SortByOption = {
+  value: SortBy;
   label: string;
 };
