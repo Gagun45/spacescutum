@@ -39,7 +39,7 @@ const TodoTitle = ({
     <Label
       htmlFor={todo.id}
       className={`cursor-pointer ${
-        todo.completed ? "line-through text-gray-400" : ""
+        todo.completed ? "line-through" : ""
       }`}
     >
       {todo.title}

@@ -31,7 +31,7 @@ const TodoItem = ({ todo }: Props) => {
     dispatch(toggleTodoCompleted({ todoId: todo.id }));
   };
   return (
-    <article className="flex flex-col gap-2 p-4 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-200">
+    <article className="flex flex-col gap-2 p-4 rounded-lg shadow hover:shadow-lg transition-shadow border">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center w-full gap-2">
           <Checkbox
