@@ -67,7 +67,11 @@ const Pagination = ({ totalTodos }: Props) => {
 
   return (
     <div className="flex gap-2 items-center justify-between flex-wrap">
-      <Button onClick={handlePrevPage} disabled={!isPrevPage}>
+      <Button
+        aria-label="Previous page"
+        onClick={handlePrevPage}
+        disabled={!isPrevPage}
+      >
         <ArrowLeft />
       </Button>
       <span className="sm:hidden tracking-widest font-semibold">
@@ -84,6 +88,7 @@ const Pagination = ({ totalTodos }: Props) => {
             </span>
           ) : (
             <Button
+              aria-label={`Page ${page}`}
               key={page}
               onClick={() => handleChangePage(page as number)}
               variant={currentPage === page ? "default" : "outline"}
@@ -94,7 +99,11 @@ const Pagination = ({ totalTodos }: Props) => {
           )
         )}
       </div>
-      <Button onClick={handleNextPage} disabled={!isNextPage}>
+      <Button
+        aria-label="Next page"
+        onClick={handleNextPage}
+        disabled={!isNextPage}
+      >
         <ArrowRight />
       </Button>
     </div>

@@ -13,7 +13,12 @@ const DeleteTodoBtn = ({ todoId }: Props) => {
     dispatch(deleteTodo({ todoId }));
   };
   return (
-    <Button variant={"destructive"} className="size-7" onClick={handleDeleteTodo}>
+    <Button
+      aria-label="Delete todo"
+      variant={"destructive"}
+      className="size-7"
+      onClick={handleDeleteTodo}
+    >
       <TrashIcon />
     </Button>
   );

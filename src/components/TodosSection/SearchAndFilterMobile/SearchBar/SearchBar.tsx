@@ -18,6 +18,7 @@ const SearchBar = () => {
         }
       />
       <Button
+        aria-label="Clear search query"
         disabled={!searchQuery}
         onClick={() => dispatch(setSearchQuery({ query: "" }))}
       >

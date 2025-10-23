@@ -18,6 +18,7 @@ const EditTodoBtn = ({
     return (
       <>
         <Button
+          aria-label="Cancel editing"
           onMouseDown={(e) => e.preventDefault()}
           onClick={handleCancelEdit}
           className="size-7"
@@ -26,6 +27,7 @@ const EditTodoBtn = ({
           <XIcon />
         </Button>
         <Button
+          aria-label="Save changes"
           onMouseDown={(e) => e.preventDefault()}
           onClick={handleSaveEdit}
           className="size-7"
@@ -36,6 +38,7 @@ const EditTodoBtn = ({
     );
   return (
     <Button
+      aria-label="Edit todo"
       onClick={() => setEditMode((prev) => !prev)}
       className="size-7"
       variant={"ghost"}
