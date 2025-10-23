@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import TodoItem from "./TodoItem/TodoItem";
 import Pagination from "./Pagination/Pagination";
 import DeleteAllTodosBtn from "../../SearchAndFilterMobile/DeleteAllTodosBtn/DeleteAllTodosBtn";
+import { useAppSelector } from "@/hooks/reduxHooks";
 
 interface Props {
   todos: Todo[];
@@ -10,10 +11,14 @@ interface Props {
 }
 
 const TodosList = ({ todos, totalTodos }: Props) => {
+  const { filterCompleted } = useAppSelector((s) => s.ui);
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-4 flex-wrap">
-        <span className="italic ">Found todos: {totalTodos} </span>
+        <span>
+          Found <i>{filterCompleted === "all" ? "total" : filterCompleted}</i>{" "}
+          todos: {totalTodos}
+        </span>
         <DeleteAllTodosBtn />
       </div>
       <AnimatePresence>

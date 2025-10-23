@@ -10,7 +10,7 @@ const DeleteAllTodosBtn = () => {
   };
   if (todos.length === 0) return null;
   return (
-    <Button variant={'ghost'} className="w-24" onClick={onClearTodos}>
+    <Button variant={'ghost'} onClick={onClearTodos}>
       Delete all todos
     </Button>
   );
