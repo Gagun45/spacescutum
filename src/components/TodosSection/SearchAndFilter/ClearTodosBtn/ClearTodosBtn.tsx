@@ -10,7 +10,7 @@ const ClearTodosBtn = () => {
   };
   if (todos.length === 0) return null;
   return (
-    <Button className="w-36 ml-auto" onClick={onClearTodos}>
+    <Button onClick={onClearTodos}>
       Clear todos
     </Button>
   );

@@ -8,11 +8,19 @@ interface Props {
 
 const TodosErrorState = ({ error }: Props) => {
   const dispatch = useAppDispatch();
-  if (!error) return null;
   return (
-    <div className="p-4">
-      <p className="text-red-500">Error: {error}</p>
-      <Button onClick={() => dispatch(fetchTodosFromApi())}>Retry</Button>
+    <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
+      <p className="text-sm text-red-500 font-medium">
+        Oops! Something went wrong:
+      </p>
+      <p className="text-sm text-muted-foreground">{error}</p>
+      <Button
+        variant="outline"
+        onClick={() => dispatch(fetchTodosFromApi())}
+        className="mt-2"
+      >
+        Retry
+      </Button>
     </div>
   );
 };
