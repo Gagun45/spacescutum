@@ -1,12 +1,12 @@
 import AddTodoForm from "./AddTodoForm/AddTodoForm";
-import SearchAndFilter from "./SearchAndFilter/SearchAndFilter";
+import SearchAndFilterMobile from "./SearchAndFilterMobile/SearchAndFilterMobile";
 import TodosContainer from "./TodosContainer/TodosContainer";
 
 const TodosSection = () => {
   return (
-    <section className="space-y-4">
+    <section className="space-y-4 grow">
       <AddTodoForm />
-      <SearchAndFilter />
+      <SearchAndFilterMobile />
       <TodosContainer />
     </section>
   );

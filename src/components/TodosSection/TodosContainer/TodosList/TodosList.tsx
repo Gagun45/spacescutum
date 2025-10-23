@@ -2,6 +2,7 @@ import type { Todo } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
 import TodoItem from "./TodoItem/TodoItem";
 import Pagination from "./Pagination/Pagination";
+import ClearTodosBtn from "../../SearchAndFilterMobile/ClearTodosBtn/ClearTodosBtn";
 
 interface Props {
   todos: Todo[];
@@ -11,7 +12,10 @@ interface Props {
 const TodosList = ({ todos, totalTodos }: Props) => {
   return (
     <div className="flex flex-col gap-4">
-      <span className="italic ">Found todos: {totalTodos} </span>
+      <div className="flex items-center justify-between gap-4 flex-wrap">
+        <span className="italic ">Found todos: {totalTodos} </span>
+        <ClearTodosBtn />
+      </div>
       <AnimatePresence>
         {todos.map((todo) => (
           <motion.div

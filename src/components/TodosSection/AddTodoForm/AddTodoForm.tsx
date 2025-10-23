@@ -16,7 +16,7 @@ const AddTodoForm = () => {
   };
   return (
     <form
-      className="flex flex-1 min-w-48 items-center gap-2"
+      className="flex min-w-48 items-center gap-2 sm:gap-8"
       onSubmit={handleAddTodo}
     >
       <Input

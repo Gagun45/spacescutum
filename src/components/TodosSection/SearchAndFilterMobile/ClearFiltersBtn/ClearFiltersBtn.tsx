@@ -8,7 +8,7 @@ const ClearFiltersBtn = () => {
     dispatch(resetUI());
   };
   return (
-    <Button variant={"outline"} onClick={handleReset}>
+    <Button variant={"outline"} className="w-fit" onClick={handleReset}>
       Clear filters
     </Button>
   );
