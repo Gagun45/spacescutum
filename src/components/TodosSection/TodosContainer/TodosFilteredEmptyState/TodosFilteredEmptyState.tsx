@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 
 import StateWrapper from "../StateWrapper";
 
-import ClearFiltersBtn from "../../SearchAndFilterMobile/ClearFiltersBtn/ClearFiltersBtn";
+import ClearFiltersBtn from "../../../General/ClearFiltersBtn/ClearFiltersBtn";
 
 const TodosFilteredEmptyState = () => {
   return (

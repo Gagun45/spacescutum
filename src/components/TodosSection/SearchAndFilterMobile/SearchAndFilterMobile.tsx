@@ -7,9 +7,9 @@ import {
 import SearchBar from "./SearchBar/SearchBar";
 import FilterCompleted from "./FilterCompletedRadio/FilterCompletedRadio";
 import SortBySelect from "./SortBySelect/SortBySelect";
-import ShowOnPage from "./ShowOnPage/ShowOnPage";
+import ShowOnPage from "./ShowOnPageSelect/ShowOnPageSelect";
 import { useAppSelector } from "@/hooks/reduxHooks";
-import ClearFiltersBtn from "./ClearFiltersBtn/ClearFiltersBtn";
+import ClearFiltersBtn from "../../General/ClearFiltersBtn/ClearFiltersBtn";
 
 const SearchAndFilterMobile = () => {
   const { todos } = useAppSelector((s) => s.todos);

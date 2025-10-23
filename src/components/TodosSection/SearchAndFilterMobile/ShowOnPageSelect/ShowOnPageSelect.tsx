@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { SHOW_ON_PAGE_OPTIONS as options } from "@/lib/constants";
 import { setShowOnPage } from "@/redux/slices/uiSlice";
 
-const ShowOnPage = () => {
+const ShowOnPageSelect = () => {
   const { showOnPage } = useAppSelector((s) => s.ui);
   const dispatch = useAppDispatch();
   const handleChange = (value: string) => {
@@ -31,4 +31,4 @@ const ShowOnPage = () => {
     </Label>
   );
 };
-export default ShowOnPage;
+export default ShowOnPageSelect;

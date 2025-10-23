@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
+import SearchAndFilterDesktop from "./components/SearchAndFilterDesktop/SearchAndFilterDesktop";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
-import SearchAndFilterDesktop from "./components/TodosSection/SearchAndFilterDesktop/SearchAndFilterDesktop";
 import TodosSection from "./components/TodosSection/TodosSection";
 
 function App() {
