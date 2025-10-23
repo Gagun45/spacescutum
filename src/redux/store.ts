@@ -13,7 +13,6 @@ let prevTodos: Todo[] = [];
 store.subscribe(() => {
   const todos = store.getState().todos.todos;
   if (prevTodos !== todos) {
-    console.log("rewrite localstorage");
     saveTodosToStorage(todos);
     prevTodos = todos;
   }

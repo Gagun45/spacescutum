@@ -13,10 +13,10 @@ const TodosContainer = () => {
 
   if (todos.length === 0) return <TodosEmptyState loading={loading} />;
 
-  const filteredTodos = getFilteredTodos({ todos, ui });
+  const { pageTodos, totalTodos } = getFilteredTodos({ todos, ui });
 
-  if (filteredTodos.length === 0) return <TodosFilteredEmptyState />;
+  if (totalTodos === 0) return <TodosFilteredEmptyState />;
 
-  return <TodosList todos={filteredTodos} />;
+  return <TodosList todos={pageTodos} totalTodos={totalTodos} />;
 };
 export default TodosContainer;

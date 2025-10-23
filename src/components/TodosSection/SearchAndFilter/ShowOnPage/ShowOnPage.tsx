@@ -1,3 +1,4 @@
+import { Label } from "@/components/ui/label";
 import {
   NativeSelect,
   NativeSelectOption,
@@ -15,16 +16,19 @@ const ShowOnPage = () => {
   };
 
   return (
-    <NativeSelect
-      value={showOnPage}
-      onChange={({ target }) => handleChange(target.value)}
-    >
-      {options.map((opt) => (
-        <NativeSelectOption key={opt} value={opt}>
-          {opt}
-        </NativeSelectOption>
-      ))}
-    </NativeSelect>
+    <Label>
+      Show on page:
+      <NativeSelect
+        value={showOnPage}
+        onChange={({ target }) => handleChange(target.value)}
+      >
+        {options.map((opt) => (
+          <NativeSelectOption key={opt} value={opt}>
+            {opt}
+          </NativeSelectOption>
+        ))}
+      </NativeSelect>
+    </Label>
   );
 };
 export default ShowOnPage;

@@ -24,6 +24,7 @@ export type UIState = {
   sortBy: SortBy;
   filterCompleted: FilterCompleted;
   showOnPage: number;
+  currentPage: number;
 };
 
 export type FilterCompletedOption = {

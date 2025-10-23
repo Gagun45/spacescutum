@@ -6,48 +6,54 @@ interface Props {
 }
 
 const getFilteredTodos = ({ todos, ui }: Props) => {
-  const { searchQuery, filterCompleted, sortBy, showOnPage } = ui;
+  const { searchQuery, filterCompleted, sortBy, showOnPage, currentPage } = ui;
 
-  let filtered = [...todos];
+  let filteredTodos = [...todos];
 
   //search query
   if (searchQuery.trim()) {
     const q = searchQuery.toLowerCase();
-    filtered = filtered.filter((t) => t.title.toLowerCase().includes(q));
+    filteredTodos = filteredTodos.filter((t) =>
+      t.title.toLowerCase().includes(q)
+    );
   }
 
   //filter by completion
   if (filterCompleted === "completed")
-    filtered = filtered.filter((t) => t.completed);
+    filteredTodos = filteredTodos.filter((t) => t.completed);
   if (filterCompleted === "incompleted")
-    filtered = filtered.filter((t) => !t.completed);
+    filteredTodos = filteredTodos.filter((t) => !t.completed);
 
   //sort by
 
   switch (sortBy) {
     case "createdAtAsc":
-      filtered.sort(
+      filteredTodos.sort(
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
       break;
     case "createdAtDesc":
-      filtered.sort(
+      filteredTodos.sort(
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
       break;
     case "titleAsc":
-      filtered.sort((a, b) => a.title.localeCompare(b.title));
+      filteredTodos.sort((a, b) => a.title.localeCompare(b.title));
       break;
     case "titleDesc":
-      filtered.sort((a, b) => b.title.localeCompare(a.title));
+      filteredTodos.sort((a, b) => b.title.localeCompare(a.title));
       break;
   }
+  const totalTodos = filteredTodos.length;
   //show on page
-  const paginated = filtered.slice(0, showOnPage);
+  const pageTodos = filteredTodos.slice(
+    showOnPage * (currentPage - 1),
+    showOnPage * currentPage
+  );
 
-  return paginated;
+  return { pageTodos, totalTodos };
 };
 
 export { getFilteredTodos };

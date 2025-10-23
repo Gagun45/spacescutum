@@ -28,7 +28,7 @@ const SearchAndFilter = () => {
         <AccordionContent className="space-y-4 p-2 ">
           <SearchBar />
           <div className="space-y-4">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-4 flex-wrap">
               <ShowOnPage />
               <SortBySelect />
             </div>

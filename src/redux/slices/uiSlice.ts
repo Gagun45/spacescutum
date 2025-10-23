@@ -8,6 +8,7 @@ const initialState: UIState = {
   sortBy: "createdAtDesc",
   filterCompleted: "all",
   showOnPage: SHOW_ON_PAGE_OPTIONS[0],
+  currentPage: 1,
 };
 
 const UISlice = createSlice({
@@ -31,6 +32,10 @@ const UISlice = createSlice({
       const { showOnPage } = action.payload;
       state.showOnPage = showOnPage;
     },
+    setCurrentPage(state, action: PayloadAction<{ page: number }>) {
+      const { page } = action.payload;
+      state.currentPage = page;
+    },
     resetUI() {
       return initialState;
     },
@@ -43,5 +48,6 @@ export const {
   setSearchQuery,
   setSortBy,
   setShowOnPage,
+  setCurrentPage,
 } = UISlice.actions;
 export default UISlice.reducer;

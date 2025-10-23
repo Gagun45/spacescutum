@@ -1,3 +1,4 @@
+import { Label } from "@/components/ui/label";
 import {
   NativeSelect,
   NativeSelectOption,
@@ -15,16 +16,19 @@ const SortBySelect = () => {
     dispatch(setSortBy({ sortBy: sortByValue }));
   };
   return (
-    <NativeSelect
-      value={sortBy}
-      onChange={({ target }) => handleChange(target.value)}
-    >
-      {options.map((opt) => (
-        <NativeSelectOption key={opt.value} value={opt.value}>
-          {opt.label}
-        </NativeSelectOption>
-      ))}
-    </NativeSelect>
+    <Label>
+      Sort:
+      <NativeSelect
+        value={sortBy}
+        onChange={({ target }) => handleChange(target.value)}
+      >
+        {options.map((opt) => (
+          <NativeSelectOption key={opt.value} value={opt.value}>
+            {opt.label}
+          </NativeSelectOption>
+        ))}
+      </NativeSelect>
+    </Label>
   );
 };
 export default SortBySelect;
