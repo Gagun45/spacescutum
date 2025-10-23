@@ -1,4 +1,4 @@
-import type { ExternalTodo, NewTodo, Todo, TodosState } from "@/lib/types";
+import type { ExternalTodo, Todo, TodosState } from "@/lib/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit/react";
 import { createAsyncThunk } from "@reduxjs/toolkit/react";
 import { v4 as uuid } from "uuid";
@@ -31,14 +31,15 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo(state, action: PayloadAction<NewTodo>) {
+    addTodo(state, action: PayloadAction<{ title: string }>) {
+      const { title } = action.payload;
       const newTodo: Todo = {
         id: uuid(),
-        title: action.payload.title,
-        completed: action.payload.completed,
+        title,
+        completed: false,
         createdAt: new Date().toISOString(),
       };
-      state.todos = [newTodo, ...state.todos];
+      state.todos = [...state.todos, newTodo];
     },
     deleteTodo(state, action: PayloadAction<{ todoId: string }>) {
       state.todos = state.todos.filter((t) => t.id !== action.payload.todoId);

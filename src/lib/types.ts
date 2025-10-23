@@ -12,11 +12,6 @@ export type Todo = {
   createdAt: string;
 };
 
-export type NewTodo = {
-  title: string;
-  completed: boolean;
-};
-
 export type TodosState = {
   todos: Todo[];
   loading: boolean;
