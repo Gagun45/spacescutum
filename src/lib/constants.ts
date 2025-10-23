@@ -19,4 +19,4 @@ export const SORT_BY_OPTIONS: SortByOption[] = [
   { value: "titleDesc", label: "Z to A" },
 ];
 
-export const SHOW_ON_PAGE_OPTIONS = [4, 7, 10];
+export const SHOW_ON_PAGE_OPTIONS = [5, 10, 20];
