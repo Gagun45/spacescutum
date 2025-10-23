@@ -6,7 +6,6 @@ function App() {
     <>
       <Header />
       <main>
-        <h1 className="text-center">TODO APP</h1>
         <TodosSection />
       </main>
     </>
