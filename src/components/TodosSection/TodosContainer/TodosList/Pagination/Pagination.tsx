@@ -14,6 +14,38 @@ const Pagination = ({ totalTodos }: Props) => {
 
   const totalPages = Math.ceil(totalTodos / showOnPage);
 
+  const getVisiblePages = () => {
+    const pages: (number | string)[] = [];
+
+    if (totalPages <= 7) {
+      // show all if few pages
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      // always show first page
+      pages.push(1);
+
+      if (currentPage > 4) pages.push("…");
+
+      // show up to 3 pages around current
+      for (
+        let i = Math.max(2, currentPage - 1);
+        i <= Math.min(totalPages - 1, currentPage + 1);
+        i++
+      ) {
+        pages.push(i);
+      }
+
+      if (currentPage < totalPages - 3) pages.push("…");
+
+      // always show last page
+      pages.push(totalPages);
+    }
+
+    return pages;
+  };
+
+  const visiblePages = getVisiblePages();
+
   const isNextPage = currentPage < totalPages;
   const isPrevPage = currentPage > 1;
 
@@ -33,23 +65,34 @@ const Pagination = ({ totalTodos }: Props) => {
     dispatch(setCurrentPage({ page: currentPage - 1 }));
   };
 
-  const pages = Array.from({ length: totalPages }).map((_, i) => i + 1);
-
   return (
     <div className="flex gap-2 items-center justify-between flex-wrap">
       <Button onClick={handlePrevPage} disabled={!isPrevPage}>
         <ArrowLeft />
       </Button>
-      <div className="space-x-1">
-        {pages.map((page) => (
-          <Button
-            key={page}
-            onClick={() => handleChangePage(page)}
-            variant={currentPage === page ? "default" : "outline"}
-          >
-            {page}
-          </Button>
-        ))}
+      <span className="sm:hidden tracking-widest font-semibold">
+        {currentPage}/{totalPages}
+      </span>
+      <div className="space-x-1 hidden sm:block">
+        {visiblePages.map((page, index) =>
+          page === "…" ? (
+            <span
+              key={`ellipsis-${index}`}
+              className="px-2 text-gray-500 select-none"
+            >
+              …
+            </span>
+          ) : (
+            <Button
+              key={page}
+              onClick={() => handleChangePage(page as number)}
+              variant={currentPage === page ? "default" : "outline"}
+              className="w-9 h-9 rounded-full"
+            >
+              {page}
+            </Button>
+          )
+        )}
       </div>
       <Button onClick={handleNextPage} disabled={!isNextPage}>
         <ArrowRight />

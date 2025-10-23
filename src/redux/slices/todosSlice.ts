@@ -16,7 +16,7 @@ const initialState: TodosState = {
   error: null,
 };
 
-const apiUrl = "https://jsonplaceholder.typicode.com/todos?_limit=10";
+const apiUrl = "https://jsonplaceholder.typicode.com/todos?";
 
 export const fetchTodosFromApi = createAsyncThunk(
   "todos/fetchFromApi",
