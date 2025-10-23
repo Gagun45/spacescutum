@@ -137,7 +137,7 @@
   }
 
   main {
-    @apply px-6 py-10 md:py-20 text-foreground min-h-[calc(100vh-36*4px)] max-w-3xl xl:max-w-[1440px] mx-auto w-full flex gap-8
+    @apply px-6 xl:px-12 py-10 md:py-20 text-foreground min-h-[calc(100vh-36*4px)] max-w-3xl xl:max-w-[1440px] mx-auto w-full flex gap-8
   }
 
   section {

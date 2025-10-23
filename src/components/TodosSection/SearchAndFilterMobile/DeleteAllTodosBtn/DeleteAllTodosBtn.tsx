@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { clearTodos } from "@/redux/slices/todosSlice";
 
-const ClearTodosBtn = () => {
+const DeleteAllTodosBtn = () => {
   const { todos } = useAppSelector((s) => s.todos);
   const dispatch = useAppDispatch();
   const onClearTodos = () => {
@@ -11,8 +11,8 @@ const ClearTodosBtn = () => {
   if (todos.length === 0) return null;
   return (
     <Button variant={'ghost'} className="w-24" onClick={onClearTodos}>
-      Clear todos
+      Delete all todos
     </Button>
   );
 };
-export default ClearTodosBtn;
+export default DeleteAllTodosBtn;
