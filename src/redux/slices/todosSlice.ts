@@ -2,9 +2,10 @@ import type { ExternalTodo, NewTodo, Todo, TodosState } from "@/lib/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit/react";
 import { createAsyncThunk } from "@reduxjs/toolkit/react";
 import { v4 as uuid } from "uuid";
+import { loadTodosFromStorage } from "../utils/localStorage";
 
 const initialState: TodosState = {
-  todos: [],
+  todos: loadTodosFromStorage(),
   loading: false,
   error: null,
 };
@@ -42,6 +43,9 @@ const todosSlice = createSlice({
     deleteTodo(state, action: PayloadAction<{ todoId: string }>) {
       state.todos = state.todos.filter((t) => t.id !== action.payload.todoId);
     },
+    clearTodos(state) {
+      state.todos = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -64,5 +68,5 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo } = todosSlice.actions;
+export const { addTodo, deleteTodo, clearTodos } = todosSlice.actions;
 export default todosSlice.reducer;
