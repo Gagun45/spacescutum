@@ -1,18 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { useAppDispatch } from "@/hooks/reduxHooks";
+import StateWrapper from "../StateWrapper";
 import { fetchTodosFromApi } from "@/redux/slices/todosSlice";
+import { useAppDispatch } from "@/hooks/reduxHooks";
 
 interface Props {
-  error: string;
+  error?: string;
 }
 
 const TodosErrorState = ({ error }: Props) => {
   const dispatch = useAppDispatch();
+  if (!error) return null;
+
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-      <p className="text-sm text-red-500 font-medium">
-        Oops! Something went wrong:
-      </p>
+    <StateWrapper>
+      <p className="text-sm text-red-500 font-medium">Oops! Something went wrong:</p>
       <p className="text-sm text-muted-foreground">{error}</p>
       <Button
         variant="outline"
@@ -21,7 +22,8 @@ const TodosErrorState = ({ error }: Props) => {
       >
         Retry
       </Button>
-    </div>
+    </StateWrapper>
   );
 };
+
 export default TodosErrorState;

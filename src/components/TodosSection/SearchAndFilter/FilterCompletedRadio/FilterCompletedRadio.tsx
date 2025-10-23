@@ -12,9 +12,13 @@ const FilterCompletedRadio = () => {
     dispatch(setFilterCompleted({ show }));
   };
   return (
-    <RadioGroup value={filterOption} onValueChange={handleChange}>
+    <RadioGroup
+      value={filterOption}
+      onValueChange={handleChange}
+      className="w-fit"
+    >
       {options.map((opt) => (
-        <Label key={opt.label} className="flex items-center gap-3">
+        <Label key={opt.label} className="flex items-center gap-3 cursor-pointer">
           <RadioGroupItem value={opt.value} id={opt.value} />
           {opt.label}
         </Label>

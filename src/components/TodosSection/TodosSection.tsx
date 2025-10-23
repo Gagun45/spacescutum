@@ -1,13 +1,13 @@
 import AddTodoForm from "./AddTodoForm/AddTodoForm";
 import SearchAndFilter from "./SearchAndFilter/SearchAndFilter";
-import TodosList from "./TodosList/TodosList";
+import TodosContainer from "./TodosContainer/TodosContainer";
 
 const TodosSection = () => {
   return (
     <section className="space-y-4">
       <AddTodoForm />
       <SearchAndFilter />
-      <TodosList />
+      <TodosContainer />
     </section>
   );
 };

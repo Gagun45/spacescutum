@@ -9,8 +9,8 @@ import SearchBar from "./SearchBar/SearchBar";
 import FilterCompleted from "./FilterCompletedRadio/FilterCompletedRadio";
 import SortBySelect from "./SortBySelect/SortBySelect";
 import ShowOnPage from "./ShowOnPage/ShowOnPage";
-import ResetFiltersBtn from "./ResetFiltersBtn/ResetFiltersBtn";
 import { useAppSelector } from "@/hooks/reduxHooks";
+import ClearFiltersBtn from "./ClearFiltersBtn/ClearFiltersBtn";
 
 const SearchAndFilter = () => {
   const { todos } = useAppSelector((s) => s.todos);
@@ -33,7 +33,7 @@ const SearchAndFilter = () => {
               <SortBySelect />
             </div>
             <FilterCompleted />
-            <ResetFiltersBtn />
+            <ClearFiltersBtn />
           </div>
         </AccordionContent>
       </AccordionItem>

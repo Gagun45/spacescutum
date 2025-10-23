@@ -2,11 +2,15 @@ import { Button } from "@/components/ui/button";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { resetUI } from "@/redux/slices/uiSlice";
 
-const ResetFiltersBtn = () => {
+const ClearFiltersBtn = () => {
   const dispatch = useAppDispatch();
   const handleReset = () => {
     dispatch(resetUI());
   };
-  return <Button onClick={handleReset}>Reset filters</Button>;
+  return (
+    <Button variant={"outline"} onClick={handleReset}>
+      Clear filters
+    </Button>
+  );
 };
-export default ResetFiltersBtn;
+export default ClearFiltersBtn;
