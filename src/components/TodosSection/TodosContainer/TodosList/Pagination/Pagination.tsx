@@ -42,6 +42,7 @@ const Pagination = ({ totalTodos }: Props) => {
       <div className="space-x-1">
         {pages.map((page) => (
           <Button
+            key={page}
             onClick={() => handleChangePage(page)}
             variant={currentPage === page ? "default" : "outline"}
           >
