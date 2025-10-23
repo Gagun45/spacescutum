@@ -2,10 +2,10 @@ import type { FilterCompleted, SortBy, UIState } from "@/lib/types";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit/react";
 
-
 const initialState: UIState = {
   searchQuery: "",
   sortBy: { field: "createdAt", order: "asc" },
+  filterCompleted: "all",
 };
 
 const UISlice = createSlice({
@@ -28,7 +28,7 @@ const UISlice = createSlice({
     resetUI(state) {
       state.searchQuery = "";
       state.sortBy = { field: "createdAt", order: "asc" };
-      state.filterCompleted = undefined;
+      state.filterCompleted = "all";
     },
   },
 });

@@ -3,7 +3,6 @@ import TodosLoadingState from "./TodosLoadingState/TodosLoadingState";
 import TodosErrorState from "./TodosErrorState/TodosErrorState";
 import TodosEmptyState from "./TodosEmptyState/TodosEmptyState";
 import TodoItem from "./TodoItem/TodoItem";
-import ClearTodosBtn from "./ClearTodosBtn/ClearTodosBtn";
 import { getFilteredTodos } from "@/lib/filterTodos";
 
 const TodosList = () => {
@@ -19,14 +18,11 @@ const TodosList = () => {
   const filteredTodos = getFilteredTodos({ todos, ui });
 
   return (
-    <>
-      <ClearTodosBtn />
-      <div className="flex flex-col gap-4">
-        {filteredTodos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} />
-        ))}
-      </div>
-    </>
+    <div className="flex flex-col gap-4">
+      {filteredTodos.map((todo) => (
+        <TodoItem todo={todo} key={todo.id} />
+      ))}
+    </div>
   );
 };
 export default TodosList;

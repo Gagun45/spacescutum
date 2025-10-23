@@ -15,13 +15,13 @@ const AddTodoForm = () => {
     setNewTodoTitle("");
   };
   return (
-    <form className="flex items-center gap-2" onSubmit={handleAddTodo}>
+    <form className="flex flex-1 min-w-64 items-center gap-2" onSubmit={handleAddTodo}>
       <Input
         placeholder="New todo..."
         value={newTodoTitle}
         onChange={({ target }) => setNewTodoTitle(target.value)}
       />
-      <Button className="w-36" disabled={!newTodoTitle}>Add Todo</Button>
+      <Button disabled={!newTodoTitle}>Add Todo</Button>
     </form>
   );
 };

@@ -14,7 +14,7 @@ export type Todo = {
 
 export type SortField = "createdAt" | "title";
 export type SortOrder = "asc" | "desc";
-export type FilterCompleted = "completed" | "incompleted";
+export type FilterCompleted = "completed" | "incompleted" | "all";
 
 export type SortBy = {
   field: SortField;
@@ -24,5 +24,10 @@ export type SortBy = {
 export type UIState = {
   searchQuery: string;
   sortBy: SortBy;
-  filterCompleted?: FilterCompleted;
+  filterCompleted: FilterCompleted;
+};
+
+export type FilterCompletedOption = {
+  value: FilterCompleted;
+  label: string;
 };
