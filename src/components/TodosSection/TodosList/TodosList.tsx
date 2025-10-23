@@ -15,12 +15,14 @@ const TodosList = () => {
   if (todos.length === 0) return <TodosEmptyState />;
 
   return (
-    <div className="p-4 border-2 space-y-4">
+    <>
       <ClearTodosBtn />
-      {todos.map((todo) => (
-        <TodoItem todo={todo} key={todo.id} />
-      ))}
-    </div>
+      <div className="flex flex-col gap-4">
+        {todos.map((todo) => (
+          <TodoItem todo={todo} key={todo.id} />
+        ))}
+      </div>
+    </>
   );
 };
 export default TodosList;

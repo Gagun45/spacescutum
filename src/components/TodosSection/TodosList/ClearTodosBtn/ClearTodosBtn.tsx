@@ -7,6 +7,6 @@ const ClearTodosBtn = () => {
   const onClearTodos = () => {
     dispatch(clearTodos());
   };
-  return <Button onClick={onClearTodos}>Clear todos</Button>;
+  return <Button className="w-36 ml-auto" onClick={onClearTodos}>Clear todos</Button>;
 };
 export default ClearTodosBtn;

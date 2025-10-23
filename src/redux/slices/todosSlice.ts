@@ -47,6 +47,12 @@ const todosSlice = createSlice({
     clearTodos(state) {
       state.todos = [];
     },
+    toggleTodoCompleted(state, action: PayloadAction<{ todoId: string }>) {
+      const todoId = action.payload.todoId;
+      state.todos = state.todos.map((t) =>
+        t.id === todoId ? { ...t, completed: !t.completed } : t
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,5 +75,6 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo, clearTodos } = todosSlice.actions;
+export const { addTodo, deleteTodo, clearTodos, toggleTodoCompleted } =
+  todosSlice.actions;
 export default todosSlice.reducer;

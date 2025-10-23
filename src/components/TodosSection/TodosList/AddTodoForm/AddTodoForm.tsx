@@ -7,7 +7,7 @@ import { useState } from "react";
 const AddTodoForm = () => {
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const dispatch = useAppDispatch();
-  const onAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmedTitle = newTodoTitle.trim();
     if (!trimmedTitle) return;
@@ -15,13 +15,13 @@ const AddTodoForm = () => {
     setNewTodoTitle("");
   };
   return (
-    <form className="flex items-center gap-2" onSubmit={onAddTodo}>
+    <form className="flex items-center gap-2" onSubmit={handleAddTodo}>
       <Input
         placeholder="New todo..."
         value={newTodoTitle}
         onChange={({ target }) => setNewTodoTitle(target.value)}
       />
-      <Button disabled={!newTodoTitle}>Add Todo</Button>
+      <Button className="w-36" disabled={!newTodoTitle}>Add Todo</Button>
     </form>
   );
 };
