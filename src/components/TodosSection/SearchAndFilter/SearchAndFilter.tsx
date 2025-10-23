@@ -8,6 +8,7 @@ import ClearTodosBtn from "./ClearTodosBtn/ClearTodosBtn";
 import SearchBar from "./SearchBar/SearchBar";
 import FilterCompleted from "./FilterCompleted/FilterCompleted";
 import SortBySelect from "./SortBySelect/SortBySelect";
+import ShowOnPage from "./ShowOnPage/ShowOnPage";
 
 const SearchAndFilter = () => {
   return (
@@ -22,7 +23,7 @@ const SearchAndFilter = () => {
         <AccordionContent className="space-y-4">
           <SearchBar />
           <div className="flex items-center justify-between flex-wrap gap-2">
-            <span>Show on page</span>
+            <ShowOnPage />
             <SortBySelect />
             <FilterCompleted />
           </div>

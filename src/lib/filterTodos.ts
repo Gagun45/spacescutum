@@ -6,7 +6,7 @@ interface Props {
 }
 
 const getFilteredTodos = ({ todos, ui }: Props) => {
-  const { searchQuery, filterCompleted, sortBy } = ui;
+  const { searchQuery, filterCompleted, sortBy, showOnPage } = ui;
 
   let filtered = [...todos];
 
@@ -45,8 +45,9 @@ const getFilteredTodos = ({ todos, ui }: Props) => {
       break;
   }
   //show on page
+  const paginated = filtered.slice(0, showOnPage);
 
-  return filtered;
+  return paginated;
 };
 
 export { getFilteredTodos };

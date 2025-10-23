@@ -8,13 +8,15 @@ export const FILTER_COMPLETED_OPTIONS: FilterCompletedOption[] = [
 
 export const SORT_BY_OPTIONS: SortByOption[] = [
   {
-    value: "createdAtAsc",
+    value: "createdAtDesc",
     label: "New to old",
   },
   {
-    value: "createdAtDesc",
+    value: "createdAtAsc",
     label: "Old to new",
   },
   { value: "titleAsc", label: "A to Z" },
   { value: "titleDesc", label: "Z to A" },
 ];
+
+export const SHOW_ON_PAGE_OPTIONS = [2, 5, 10];

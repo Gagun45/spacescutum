@@ -23,11 +23,11 @@ export const fetchTodosFromApi = createAsyncThunk(
   async () => {
     const res = await fetch(apiUrl);
     const data: ExternalTodo[] = await res.json();
-    const todos: Todo[] = data.map((t) => ({
+    const todos: Todo[] = data.map((t, i) => ({
       id: uuid(),
       title: t.title,
       completed: t.completed,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date(Date.now() - i * 1000).toISOString(),
     }));
     return todos;
   }

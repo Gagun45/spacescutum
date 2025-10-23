@@ -23,6 +23,7 @@ export type UIState = {
   searchQuery: string;
   sortBy: SortBy;
   filterCompleted: FilterCompleted;
+  showOnPage: number;
 };
 
 export type FilterCompletedOption = {
