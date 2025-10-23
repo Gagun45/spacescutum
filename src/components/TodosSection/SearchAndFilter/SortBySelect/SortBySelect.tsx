@@ -16,7 +16,7 @@ const SortBySelect = () => {
   };
   return (
     <NativeSelect
-      defaultValue={sortBy}
+      value={sortBy}
       onChange={({ target }) => handleChange(target.value)}
     >
       {options.map((opt) => (

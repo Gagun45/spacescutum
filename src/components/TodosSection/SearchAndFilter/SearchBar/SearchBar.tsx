@@ -1,26 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useAppDispatch } from "@/hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { setSearchQuery } from "@/redux/slices/uiSlice";
 import { XIcon } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
-  const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    dispatch(setSearchQuery({ query }));
-  }, [query, dispatch]);
+  const { searchQuery } = useAppSelector((s) => s.ui);
 
   return (
     <div className="flex items-center gap-2">
       <Input
         placeholder="Search todo..."
-        value={query}
-        onChange={({ target }) => setQuery(target.value)}
+        value={searchQuery}
+        onChange={({ target }) =>
+          dispatch(setSearchQuery({ query: target.value }))
+        }
       />
-      <Button disabled={!query} onClick={() => setQuery("")}>
+      <Button
+        disabled={!searchQuery}
+        onClick={() => dispatch(setSearchQuery({ query: "" }))}
+      >
         <XIcon />
       </Button>
     </div>

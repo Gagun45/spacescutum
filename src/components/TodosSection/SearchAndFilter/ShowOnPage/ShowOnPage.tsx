@@ -7,7 +7,7 @@ import { SHOW_ON_PAGE_OPTIONS as options } from "@/lib/constants";
 import { setShowOnPage } from "@/redux/slices/uiSlice";
 
 const ShowOnPage = () => {
-  const { sortBy } = useAppSelector((s) => s.ui);
+  const { showOnPage } = useAppSelector((s) => s.ui);
   const dispatch = useAppDispatch();
   const handleChange = (value: string) => {
     const showOnPage = parseInt(value);
@@ -16,7 +16,7 @@ const ShowOnPage = () => {
 
   return (
     <NativeSelect
-      defaultValue={sortBy}
+      value={showOnPage}
       onChange={({ target }) => handleChange(target.value)}
     >
       {options.map((opt) => (

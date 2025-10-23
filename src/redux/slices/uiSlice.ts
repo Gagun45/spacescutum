@@ -31,10 +31,8 @@ const UISlice = createSlice({
       const { showOnPage } = action.payload;
       state.showOnPage = showOnPage;
     },
-    resetUI(state) {
-      state.filterCompleted = initialState.filterCompleted;
-      state.searchQuery = initialState.searchQuery;
-      state.sortBy = initialState.sortBy;
+    resetUI() {
+      return initialState;
     },
   },
 });
