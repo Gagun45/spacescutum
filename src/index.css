@@ -126,7 +126,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground min-h-screen bg-yellow-200
+  }
+
+  header {
+    @apply bg-blue-400 h-36 flex items-center justify-center
+  }
+
+  main {
+    @apply bg-background text-foreground min-h-[calc(100vh-144px)] max-w-5xl mx-auto
+  }
+  section {
+    @apply flex flex-col bg-purple-300 mx-auto
   }
 }
