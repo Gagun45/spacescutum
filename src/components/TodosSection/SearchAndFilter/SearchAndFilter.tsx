@@ -15,19 +15,22 @@ const SearchAndFilter = () => {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
-        <div className="flex items-center gap-4 justify-between flex-wrap">
+        <div className="flex items-center justify-between flex-wrap p-2">
           <AccordionTrigger className="max-w-fit">
             Search & Filter
           </AccordionTrigger>
-          <ResetFiltersBtn />
+
           {/* <ClearTodosBtn /> */}
         </div>
-        <AccordionContent className="space-y-4">
+        <AccordionContent className="space-y-4 p-2 ">
           <SearchBar />
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <ShowOnPage />
-            <SortBySelect />
+          <div className="space-y-4">
+            <div className="flex items-center justify-between gap-4">
+              <ShowOnPage />
+              <SortBySelect />
+            </div>
             <FilterCompleted />
+            <ResetFiltersBtn />
           </div>
         </AccordionContent>
       </AccordionItem>
