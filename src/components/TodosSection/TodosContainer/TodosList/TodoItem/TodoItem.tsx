@@ -32,8 +32,8 @@ const TodoItem = ({ todo }: Props) => {
   };
   return (
     <article className="flex flex-col gap-2 p-4 rounded-lg shadow hover:shadow-lg transition-shadow border">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex items-center w-full gap-2">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <div className="flex flex-1 items-center gap-2 min-w-36">
           <Checkbox
             id={todo.id}
             checked={todo.completed}
@@ -48,7 +48,7 @@ const TodoItem = ({ todo }: Props) => {
             handleSaveEdit={handleSaveEdit}
           />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ml-auto">
           <EditTodoBtn
             setEditMode={setEditMode}
             editMode={editMode}

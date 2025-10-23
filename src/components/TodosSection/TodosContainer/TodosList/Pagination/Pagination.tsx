@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { setCurrentPage } from "@/redux/slices/uiSlice";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 
 interface Props {
@@ -35,9 +36,9 @@ const Pagination = ({ totalTodos }: Props) => {
   const pages = Array.from({ length: totalPages }).map((_, i) => i + 1);
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex gap-2 items-center justify-between flex-wrap">
       <Button onClick={handlePrevPage} disabled={!isPrevPage}>
-        Prev
+        <ArrowLeft />
       </Button>
       <div className="space-x-1">
         {pages.map((page) => (
@@ -51,7 +52,7 @@ const Pagination = ({ totalTodos }: Props) => {
         ))}
       </div>
       <Button onClick={handleNextPage} disabled={!isNextPage}>
-        Next
+        <ArrowRight />
       </Button>
     </div>
   );

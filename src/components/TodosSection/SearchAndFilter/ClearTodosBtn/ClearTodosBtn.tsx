@@ -10,7 +10,7 @@ const ClearTodosBtn = () => {
   };
   if (todos.length === 0) return null;
   return (
-    <Button variant={'ghost'} onClick={onClearTodos}>
+    <Button variant={'ghost'} className="w-24" onClick={onClearTodos}>
       Clear todos
     </Button>
   );

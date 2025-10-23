@@ -133,11 +133,11 @@
   }
 
   header {
-    @apply h-24 flex items-center justify-center
+    @apply h-36 flex items-center justify-center
   }
 
   main {
-    @apply px-6 py-10 bg-background text-foreground min-h-[calc(100vh-24*4px)] max-w-3xl mx-auto
+    @apply px-6 py-10 md:py-20 bg-background text-foreground min-h-[calc(100vh-36*4px)] max-w-3xl mx-auto
   }
 
   section {
