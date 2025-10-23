@@ -17,15 +17,15 @@ const SearchAndFilter = () => {
   if (todos.length === 0) return null;
   return (
     <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
-        <div className="flex items-center justify-between flex-wrap p-2 gap-2">
+      <AccordionItem value="item-1" className="space-y-4">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <AccordionTrigger className="max-w-fit">
             Search & Filter
           </AccordionTrigger>
 
           <ClearTodosBtn />
         </div>
-        <AccordionContent className="space-y-4 p-2 ">
+        <AccordionContent className="space-y-4 overflow-visible!">
           <SearchBar />
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-4 flex-wrap">
