@@ -1,4 +1,5 @@
 import type { Todo } from "@/lib/types";
+import DeleteTodoBtn from "./DeleteTodoBtn/DeleteTodoBtn";
 
 interface Props {
   todo: Todo;
@@ -11,6 +12,7 @@ const TodoItem = ({ todo }: Props) => {
       <span>Title: {todo.title}</span>
       <span>Completed: {todo.completed ? "Yes" : "No"}</span>
       <span>CreatedAt: {new Date(todo.createdAt).toLocaleString()}</span>
+      <DeleteTodoBtn todoId={todo.id} />
     </div>
   );
 };

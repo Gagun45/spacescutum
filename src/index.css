@@ -138,7 +138,8 @@
   main {
     @apply bg-background text-foreground min-h-[calc(100vh-144px)] max-w-5xl mx-auto
   }
+
   section {
-    @apply flex flex-col bg-purple-300 mx-auto
+    @apply flex flex-col mx-auto
   }
 }
