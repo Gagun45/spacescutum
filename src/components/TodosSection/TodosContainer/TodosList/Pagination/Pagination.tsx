@@ -50,8 +50,9 @@ const Pagination = ({ totalTodos }: Props) => {
   const isPrevPage = currentPage > 1;
 
   useEffect(() => {
-    dispatch(setCurrentPage({ page: 1 }));
-  }, [totalTodos, dispatch]);
+    if (currentPage > totalPages)
+      dispatch(setCurrentPage({ page: totalPages }));
+  }, [totalTodos, dispatch, currentPage, totalPages]);
 
   const handleChangePage = (page: number) => {
     dispatch(setCurrentPage({ page }));
